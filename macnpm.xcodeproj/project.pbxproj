@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB0CA6C425B3B2D200FA832A /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0CA6C325B3B2D200FA832A /* ProjectViewModel.swift */; };
 		BB665FE825B19BA8007F2624 /* macnpmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB665FE725B19BA8007F2624 /* macnpmApp.swift */; };
 		BB665FEA25B19BA8007F2624 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB665FE925B19BA8007F2624 /* ContentView.swift */; };
 		BB665FEC25B19BA9007F2624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB665FEB25B19BA9007F2624 /* Assets.xcassets */; };
 		BB665FEF25B19BA9007F2624 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB665FEE25B19BA9007F2624 /* Preview Assets.xcassets */; };
 		BB665FFB25B19BA9007F2624 /* macnpmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB665FFA25B19BA9007F2624 /* macnpmTests.swift */; };
 		BB66600625B19BA9007F2624 /* macnpmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB66600525B19BA9007F2624 /* macnpmUITests.swift */; };
+		BB6C535525B3C92400FE06B8 /* ProjectModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB6C535325B3C92400FE06B8 /* ProjectModel.xcdatamodeld */; };
+		BB6C535D25B3CA0800FE06B8 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C535C25B3CA0800FE06B8 /* Project+CoreDataProperties.swift */; };
+		BB6C536625B3CA2D00FE06B8 /* Project+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C536425B3CA2D00FE06B8 /* Project+CoreDataClass.swift */; };
+		BB7CB2EF25B3945E000CA049 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7CB2EE25B3945E000CA049 /* Persistence.swift */; };
+		BBBD36E625B31FAD008B00C2 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD36E525B31FAD008B00C2 /* SidebarView.swift */; };
+		BBBD36EB25B32131008B00C2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD36EA25B32131008B00C2 /* HomeView.swift */; };
+		BBBD36F025B3218F008B00C2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD36EF25B3218F008B00C2 /* SettingsView.swift */; };
+		BBBD36F525B343B2008B00C2 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD36F425B343B2008B00C2 /* CreateView.swift */; };
+		BBC307EB25B3A3EF00460B3E /* ProjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC307EA25B3A3EF00460B3E /* ProjectList.swift */; };
+		BBC307F325B3A80C00460B3E /* PackageReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC307F225B3A80C00460B3E /* PackageReader.swift */; };
+		BBC307F825B3ABF300460B3E /* ProjectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC307F725B3ABF300460B3E /* ProjectItem.swift */; };
+		BBE9C48A25B248BD00CA2A9C /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE9C48925B248BD00CA2A9C /* CommandRunner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB0CA6C325B3B2D200FA832A /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		BB665FE425B19BA8007F2624 /* macnpm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macnpm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB665FE725B19BA8007F2624 /* macnpmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macnpmApp.swift; sourceTree = "<group>"; };
 		BB665FE925B19BA8007F2624 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +60,18 @@
 		BB66600125B19BA9007F2624 /* macnpmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macnpmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB66600525B19BA9007F2624 /* macnpmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macnpmUITests.swift; sourceTree = "<group>"; };
 		BB66600725B19BA9007F2624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB6C535425B3C92400FE06B8 /* ProjectModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectModel.xcdatamodel; sourceTree = "<group>"; };
+		BB6C535C25B3CA0800FE06B8 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "macnpm/Project+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		BB6C536425B3CA2D00FE06B8 /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		BB7CB2EE25B3945E000CA049 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		BBBD36E525B31FAD008B00C2 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		BBBD36EA25B32131008B00C2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BBBD36EF25B3218F008B00C2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BBBD36F425B343B2008B00C2 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		BBC307EA25B3A3EF00460B3E /* ProjectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectList.swift; sourceTree = "<group>"; };
+		BBC307F225B3A80C00460B3E /* PackageReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageReader.swift; sourceTree = "<group>"; };
+		BBC307F725B3ABF300460B3E /* ProjectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectItem.swift; sourceTree = "<group>"; };
+		BBE9C48925B248BD00CA2A9C /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +102,7 @@
 		BB665FDB25B19BA8007F2624 = {
 			isa = PBXGroup;
 			children = (
+				BB6C535325B3C92400FE06B8 /* ProjectModel.xcdatamodeld */,
 				BB665FE625B19BA8007F2624 /* macnpm */,
 				BB665FF925B19BA9007F2624 /* macnpmTests */,
 				BB66600425B19BA9007F2624 /* macnpmUITests */,
@@ -96,12 +123,20 @@
 		BB665FE625B19BA8007F2624 /* macnpm */ = {
 			isa = PBXGroup;
 			children = (
+				BB7CB30425B39E1B000CA049 /* Data */,
 				BB665FE725B19BA8007F2624 /* macnpmApp.swift */,
 				BB665FE925B19BA8007F2624 /* ContentView.swift */,
 				BB665FEB25B19BA9007F2624 /* Assets.xcassets */,
 				BB665FF025B19BA9007F2624 /* Info.plist */,
 				BB665FF125B19BA9007F2624 /* macnpm.entitlements */,
 				BB665FED25B19BA9007F2624 /* Preview Content */,
+				BBE9C48925B248BD00CA2A9C /* CommandRunner.swift */,
+				BBBD36E525B31FAD008B00C2 /* SidebarView.swift */,
+				BBBD36EA25B32131008B00C2 /* HomeView.swift */,
+				BBBD36EF25B3218F008B00C2 /* SettingsView.swift */,
+				BBBD36F425B343B2008B00C2 /* CreateView.swift */,
+				BBC307EA25B3A3EF00460B3E /* ProjectList.swift */,
+				BBC307F725B3ABF300460B3E /* ProjectItem.swift */,
 			);
 			path = macnpm;
 			sourceTree = "<group>";
@@ -130,6 +165,18 @@
 				BB66600725B19BA9007F2624 /* Info.plist */,
 			);
 			path = macnpmUITests;
+			sourceTree = "<group>";
+		};
+		BB7CB30425B39E1B000CA049 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BB6C536425B3CA2D00FE06B8 /* Project+CoreDataClass.swift */,
+				BB6C535C25B3CA0800FE06B8 /* Project+CoreDataProperties.swift */,
+				BB7CB2EE25B3945E000CA049 /* Persistence.swift */,
+				BBC307F225B3A80C00460B3E /* PackageReader.swift */,
+				BB0CA6C325B3B2D200FA832A /* ProjectViewModel.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +308,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB7CB2EF25B3945E000CA049 /* Persistence.swift in Sources */,
 				BB665FEA25B19BA8007F2624 /* ContentView.swift in Sources */,
+				BBBD36E625B31FAD008B00C2 /* SidebarView.swift in Sources */,
+				BB0CA6C425B3B2D200FA832A /* ProjectViewModel.swift in Sources */,
+				BBC307F325B3A80C00460B3E /* PackageReader.swift in Sources */,
+				BBE9C48A25B248BD00CA2A9C /* CommandRunner.swift in Sources */,
+				BBBD36F025B3218F008B00C2 /* SettingsView.swift in Sources */,
+				BBBD36F525B343B2008B00C2 /* CreateView.swift in Sources */,
+				BBBD36EB25B32131008B00C2 /* HomeView.swift in Sources */,
+				BB6C536625B3CA2D00FE06B8 /* Project+CoreDataClass.swift in Sources */,
+				BB6C535D25B3CA0800FE06B8 /* Project+CoreDataProperties.swift in Sources */,
+				BBC307EB25B3A3EF00460B3E /* ProjectList.swift in Sources */,
 				BB665FE825B19BA8007F2624 /* macnpmApp.swift in Sources */,
+				BBC307F825B3ABF300460B3E /* ProjectItem.swift in Sources */,
+				BB6C535525B3C92400FE06B8 /* ProjectModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +645,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BB6C535325B3C92400FE06B8 /* ProjectModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB6C535425B3C92400FE06B8 /* ProjectModel.xcdatamodel */,
+			);
+			currentVersion = BB6C535425B3C92400FE06B8 /* ProjectModel.xcdatamodel */;
+			path = ProjectModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BB665FDC25B19BA8007F2624 /* Project object */;
 }
