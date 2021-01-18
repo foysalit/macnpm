@@ -9,10 +9,10 @@ import Foundation
 
 struct PackageJSON: Decodable {
     var name: String
-    var version: String
-    var scripts: [String: String]
-    var dependencies: [String: String]
-    var devDependencies: [String: String]
+    var version: String?
+    var scripts: [String: String]?
+    var dependencies: [String: String]?
+    var devDependencies: [String: String]?
 }
 
 struct PackageReader {
@@ -27,7 +27,7 @@ struct PackageReader {
             print(error)
             return PackageJSON(
                 name: "None",
-                version: "none",
+                version: "0.0",
                 scripts: ["test": "one"],
                 dependencies: ["test": "two"],
                 devDependencies: ["test": "three"]

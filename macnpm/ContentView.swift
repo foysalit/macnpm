@@ -13,7 +13,10 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
-        SidebarView(selectedItem: $selectedItem, projectList: ProjectListViewModel(context: managedObjectContext))
+        SidebarView(
+            selectedItem: $selectedItem,
+            projectList: ProjectListViewModel(context: managedObjectContext)
+        )
             .environment(\.managedObjectContext, managedObjectContext)
     }
 }

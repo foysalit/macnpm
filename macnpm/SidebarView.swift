@@ -19,7 +19,7 @@ struct SidebarMenuItemView: View {
 }
 
 struct SidebarView: View {
-    @Environment(\.managedObjectContext) var context
+    @Environment(\.managedObjectContext) var managedObjectContext
     @Binding var selectedItem: String?
     var pageList = ["Home", "Settings", "Add Project"]
     var projectList: ProjectListViewModel
@@ -28,7 +28,7 @@ struct SidebarView: View {
         NavigationView {
             List(selection: $selectedItem) {
                 NavigationLink(
-                    destination: HomeView(projectList: projectList).environment(\.managedObjectContext, self.context),
+                    destination: HomeView(projectList: projectList).environment(\.managedObjectContext, self.managedObjectContext),
                     tag: pageList[0],
                     selection: $selectedItem
                 ) {
@@ -42,7 +42,7 @@ struct SidebarView: View {
                     SidebarMenuItemView(icon: "camera", title: pageList[1])
                 }
                 NavigationLink(
-                    destination: CreateView(projectList: projectList).environment(\.managedObjectContext, self.context),
+                    destination: CreateView(projectList: projectList).environment(\.managedObjectContext, self.managedObjectContext),
                     tag: pageList[2],
                     selection: $selectedItem
                 ) {

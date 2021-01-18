@@ -8,50 +8,53 @@
 import Foundation
 import SwiftUI
 
+extension Project {
+    static var getAllFetchRequest: NSFetchRequest<Project> {
+        let request: NSFetchRequest<Project> = Project.fetchRequest()
+        // request.predicate = NSPredicate(format: "dueDate < %@", Date.nextWeek() as CVarArg)
+        request.sortDescriptors = [NSSortDescriptor(key: "addedAt", ascending: true)]
 
-class ProjectViewModel {
-    var entry: Project;
-    var id: UUID
-    var name: String
-    var path: String
-    var addedAt: Date
-    var packageInfo: PackageJSON
+        return request
+    }
 
-    init(entry: Project) {
-        self.entry = entry;
-        id = UUID()
-        name = "None"
-        addedAt = entry.addedAt ?? Date()
-        path = entry.path ?? "/Users/foysal"
-
-        let packageReader = PackageReader(projectPath: path);
-        packageInfo = packageReader.readPackageJSON()
+    var packageInfo: PackageJSON {
+        let packageReader = PackageReader(projectPath: self.path ?? "/dev/null");
+        return packageReader.readPackageJSON()
     }
 }
 
-class ProjectListViewModel: ObservableObject {
-    var context: NSManagedObjectContext
-    @FetchRequest(
-        entity: Project.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Project.addedAt, ascending: false)]
-    ) var coreDataProjects: FetchedResults<Project>
-
-    var projects = [ProjectViewModel]()
-
-    func fetchEntries() {
-        projects = coreDataProjects.map { ProjectViewModel.init(entry: $0) }
-    }
+class ProjectListViewModel: NSObject, ObservableObject {
+    var managedContext: NSManagedObjectContext;
+    @Published var projects: [Project] = []
+    private let controller: NSFetchedResultsController<Project>
     
     init(context: NSManagedObjectContext) {
-        self.context = context
+        managedContext = context;
+        controller = NSFetchedResultsController(
+            fetchRequest: Project.getAllFetchRequest,
+            managedObjectContext: context,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+        
+        super.init()
+        
+        fetchProjects()
+    }
+    
+    func fetchProjects() {
+        do {
+          try controller.performFetch()
+          projects = controller.fetchedObjects ?? []
+        } catch {
+          print("failed to fetch projects!")
+        }
     }
     
     func saveContext() {
-        debugPrint(self.context.hasChanges)
-        if self.context.hasChanges {
+        if managedContext.hasChanges {
             do {
-                try self.context.save()
-                debugPrint(coreDataProjects)
+                try managedContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -60,21 +63,21 @@ class ProjectListViewModel: ObservableObject {
     }
     
     func deleteProject(project: Project) -> Void {
-        self.context.delete(project)
+        managedContext.delete(project)
         saveContext()
+        fetchProjects()
     }
     
     func addProject(name: String, path: String) {
-        let newProject = Project(context: self.context)
+        let newProject = Project(context: managedContext)
 
         newProject.id = UUID()
         newProject.name = name
         newProject.path = path
         newProject.addedAt = Date()
         
-        debugPrint(newProject)
         saveContext()
-        fetchEntries()
+        fetchProjects()
     }
     
     

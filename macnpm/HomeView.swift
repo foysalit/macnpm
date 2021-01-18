@@ -9,9 +9,13 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
-    var projectList: ProjectListViewModel
+    @ObservedObject var projectList: ProjectListViewModel
     
     var body: some View {
-        ProjectListView(projectList: projectList)
+        if (projectList.projects.isEmpty) {
+            Text("No project found").font(.title)
+        } else {
+            ProjectListView(projectList: projectList)
+        }
     }
 }

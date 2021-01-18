@@ -16,7 +16,7 @@ struct ProjectListView: View {
                 ProjectItemView(project: projectList.projects[id], projectList: projectList)
             }
         }.onAppear{
-            projectList.fetchEntries()
+            projectList.fetchProjects()
         }
     }
 }
