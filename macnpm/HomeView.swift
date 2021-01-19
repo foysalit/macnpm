@@ -10,12 +10,18 @@ import CoreData
 
 struct HomeView: View {
     @ObservedObject var projectList: ProjectListViewModel
-    
+    @State var selectedProjectIndex: Int = 0
+
     var body: some View {
         if (projectList.projects.isEmpty) {
             Text("No project found").font(.title)
         } else {
-            ProjectListView(projectList: projectList)
+            HStack{
+                ProjectListView(projectList: projectList, selectedProjectIndex: self.$selectedProjectIndex)
+                if (selectedProjectIndex >= 0) {
+                    ProjectDetailsView(project: projectList.projects[selectedProjectIndex], projectList: projectList)
+                }
+            }
         }
     }
 }

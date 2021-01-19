@@ -35,14 +35,12 @@ struct SidebarView: View {
                     SidebarMenuItemView(icon: "house", title: pageList[0])
                 }
                 NavigationLink(
-                    destination: SettingsView(),
-                    tag: pageList[1],
-                    selection: $selectedItem
-                ) {
-                    SidebarMenuItemView(icon: "camera", title: pageList[1])
-                }
-                NavigationLink(
-                    destination: CreateView(projectList: projectList).environment(\.managedObjectContext, self.managedObjectContext),
+                    destination: CreateView(
+                        projectList: projectList,
+                        onCreateComplete: {
+                            self.selectedItem = "Home"
+                    })
+                        .environment(\.managedObjectContext, self.managedObjectContext),
                     tag: pageList[2],
                     selection: $selectedItem
                 ) {

@@ -17,6 +17,7 @@
 		BB6C535525B3C92400FE06B8 /* ProjectModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB6C535325B3C92400FE06B8 /* ProjectModel.xcdatamodeld */; };
 		BB6C535D25B3CA0800FE06B8 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C535C25B3CA0800FE06B8 /* Project+CoreDataProperties.swift */; };
 		BB6C536625B3CA2D00FE06B8 /* Project+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C536425B3CA2D00FE06B8 /* Project+CoreDataClass.swift */; };
+		BB6D61D325B646BE0017E5C8 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D61D225B646BE0017E5C8 /* ProjectDetailsView.swift */; };
 		BB7CB2EF25B3945E000CA049 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7CB2EE25B3945E000CA049 /* Persistence.swift */; };
 		BBBD36E625B31FAD008B00C2 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD36E525B31FAD008B00C2 /* SidebarView.swift */; };
 		BBBD36EB25B32131008B00C2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBD36EA25B32131008B00C2 /* HomeView.swift */; };
@@ -63,6 +64,8 @@
 		BB6C535425B3C92400FE06B8 /* ProjectModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectModel.xcdatamodel; sourceTree = "<group>"; };
 		BB6C535C25B3CA0800FE06B8 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "macnpm/Project+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		BB6C536425B3CA2D00FE06B8 /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		BB6D61CE25B63DFA0017E5C8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BB6D61D225B646BE0017E5C8 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
 		BB7CB2EE25B3945E000CA049 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		BBBD36E525B31FAD008B00C2 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		BBBD36EA25B32131008B00C2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 		BB665FDB25B19BA8007F2624 = {
 			isa = PBXGroup;
 			children = (
+				BB6D61D225B646BE0017E5C8 /* ProjectDetailsView.swift */,
+				BB6D61CE25B63DFA0017E5C8 /* README.md */,
 				BB6C535325B3C92400FE06B8 /* ProjectModel.xcdatamodeld */,
 				BB665FE625B19BA8007F2624 /* macnpm */,
 				BB665FF925B19BA9007F2624 /* macnpmTests */,
@@ -319,6 +324,7 @@
 				BBBD36EB25B32131008B00C2 /* HomeView.swift in Sources */,
 				BB6C536625B3CA2D00FE06B8 /* Project+CoreDataClass.swift in Sources */,
 				BB6C535D25B3CA0800FE06B8 /* Project+CoreDataProperties.swift in Sources */,
+				BB6D61D325B646BE0017E5C8 /* ProjectDetailsView.swift in Sources */,
 				BBC307EB25B3A3EF00460B3E /* ProjectList.swift in Sources */,
 				BB665FE825B19BA8007F2624 /* macnpmApp.swift in Sources */,
 				BBC307F825B3ABF300460B3E /* ProjectItem.swift in Sources */,
@@ -483,7 +489,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"macnpm/Preview Content\"";
 				DEVELOPMENT_TEAM = Q48A492YZQ;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macnpm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -507,7 +513,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"macnpm/Preview Content\"";
 				DEVELOPMENT_TEAM = Q48A492YZQ;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macnpm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

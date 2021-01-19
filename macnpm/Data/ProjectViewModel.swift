@@ -16,9 +16,15 @@ extension Project {
 
         return request
     }
+    
+    var isYarn: Bool {
+        let fileManager = FileManager.default
+        return fileManager.fileExists(atPath: "\(self.path!)/yarn.lock")
 
+    }
+    
     var packageInfo: PackageJSON {
-        let packageReader = PackageReader(projectPath: self.path ?? "/dev/null");
+        let packageReader = PackageReader(projectPath: self.path!);
         return packageReader.readPackageJSON()
     }
 }

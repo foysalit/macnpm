@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct CreateView: View {
-    @State private var title: String = "";
-    @State private var path: String = "";
+    @State private var path: String = ""
+    @State private var title: String = ""
+    @State private var errorAlertMessage: String = ""
+    @State private var showErrorAlert: Bool = false
     @ObservedObject var projectList: ProjectListViewModel
+    var onCreateComplete: () -> Void;
 
     func openProjectPicker() -> Void {
         let dialog = NSOpenPanel();
@@ -25,60 +28,77 @@ struct CreateView: View {
             let result = dialog.url
 
             if (result != nil) {
+                let packageInfo = PackageReader(projectPath: result!.path).readPackageJSON()
+                if (packageInfo.name.isEmpty) {
+                    self.showErrorAlert = true;
+                    self.errorAlertMessage = "package.json file does not have a name"
+                    return
+                }
+                
+                if (!packageInfo.name.isEmpty && self.title.isEmpty) {
+                    self.title = packageInfo.name;
+                }
+                
                 self.path = result!.path
             }
         } else {
-            // User clicked on "Cancel"
             return
         }
     }
     
     func handleSaveAction () {
-        let packageInfo = PackageReader(projectPath: path).readPackageJSON()
-        if (packageInfo.version?.isEmpty == nil) {
-            return
-        }
-        
         projectList.addProject(name: title, path: path)
         title = ""
         path = ""
+        onCreateComplete()
     }
     
     var body: some View {
-        HStack{
-            Text("Add new project").font(.title)
-            Spacer()
-        }.padding(.leading, 15)
-        Section{
-            Form{
-                Text("Project title")
-                TextField("Name of your project", text: $title).padding(.bottom, 10)
-                Text("Select project from your disk")
-                Button(action: {
-                    self.openProjectPicker();
-                }) {
-                    Text(path.isEmpty ? "Project Location" : path)
-                }.padding(.bottom, 10)
-                
-                HStack {
+        GeometryReader {geometry in
+            VStack {
+                HStack{
+                    Text("Add new project").font(.title)
                     Spacer()
-                    Button(action: self.handleSaveAction) {
-                        HStack {
-                            Image(systemName: "checkmark")
-                                .font(Font.system(size: 14, weight: .light))
-                            Text("Save Project")
+                }.padding(.leading, 15)
+                Section{
+                    Form{
+                        Text("Project title")
+                        TextField("Name of your project", text: $title).padding(.bottom, 10)
+                        Text("Select project from your disk")
+                        Button(action: {
+                            self.openProjectPicker();
+                        }) {
+                            Text(path.isEmpty ? "Project Location" : path)
+                        }.padding(.bottom, 10).alert(isPresented:$showErrorAlert) {
+                            Alert(
+                                title: Text("Something's not right"),
+                                message: Text(self.errorAlertMessage)
+                            )
                         }
-                    }.disabled(path.isEmpty || title.isEmpty)
-                }
-            }
-        }.padding(15)
-        Spacer()
+                        
+                        HStack {
+                            Spacer()
+                            Button(action: self.handleSaveAction) {
+                                HStack {
+                                    Image(systemName: "checkmark")
+                                        .font(Font.system(size: 14, weight: .light))
+                                    Text("Save Project")
+                                }
+                            }.disabled(path.isEmpty || title.isEmpty)
+                        }
+                    }
+                }.padding(15)
+            }.frame(minWidth: geometry.size.width * 0.5)
+        }
     }
 }
 
 
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateView(projectList: ProjectListViewModel(context: PersistenceController.preview.container.viewContext))
+        CreateView(
+            projectList: ProjectListViewModel(context: PersistenceController.preview.container.viewContext),
+            onCreateComplete: {}
+        )
     }
 }
