@@ -7,4 +7,4 @@ A macOS app built with swiftUI that allows you run nodejs projects from your men
 ![Landing page](./screenshots/Screenshot-2021-01-19-at-02.27.45.png)
 
 ### Download
-[Click here to download the latest binary](./binary/macnpm.app)
+[Click here to download the latest binary](./binary/macnpm.zip)
